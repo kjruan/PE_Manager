@@ -18,4 +18,12 @@ angular.module("PE_Manager", [])
 			}
 		}
 
+		$scope.returnSomething = function(fund, date) {
+			for (var i in fund.data) {
+				if (fund.data[i].datetime === date) {
+					return fund.data[i].rate;
+				}
+			}
+		}
+
 	})

@@ -22,7 +22,7 @@
         </tr>
         <tr ng-repeat="date in dates">
           <td>{{date}}</td>
-          <td ng-repeat="fund in funds" ng-class="fund.isNew ? 'new' : 'old'">Test</th>
+          <td ng-repeat="fund in funds" ng-class="fund.isNew ? 'new' : 'old'">{{returnSomething(fund, date)}}</th>
         </tr>
       </table>
     </div>
