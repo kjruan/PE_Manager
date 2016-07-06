@@ -2,7 +2,9 @@
 <html ng-app="PE_Manager">
   <head>
     <link rel="stylesheet" type="text/css" href="theme.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <link rel="styleSheet" type="text/css" href="ui-grid.min.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="ui-grid.min.js"></script>
     <script src="app.js"></script>
 
   </head>
@@ -14,18 +16,11 @@
       <hr>
       <h1>Hello {{yourName}}!</h1>
     </div>
-    <div>
-      <table style="width:50%" border="1" >
-        <tr>
-          <th>Dates</th>
-          <th ng-repeat="fund in funds" ng-class="fund.isNew ? 'new' : 'old'">{{fund.name}}</th>
-        </tr>
-        <tr ng-repeat="date in dates">
-          <td>{{date}}</td>
-          <td ng-repeat="fund in funds" ng-class="fund.isNew ? 'new' : 'old'">{{returnSomething(fund, date)}}</th>
-        </tr>
-      </table>
-    </div>
+      <strong>Data Length:</strong> {{ gridOptions.data.length | number }}
+      <br>
+      <strong>Last Cell Edited:</strong> {{msg.lastCellEdited}}
+      <br>
+      <div id="grid1" ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav class="grid"></div>
     <div>
       <button>Submit</button>
     </div>
